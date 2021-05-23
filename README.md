@@ -27,3 +27,10 @@ Create a new role. For use case, select *Lambda*. Click on next and select the p
 ![Attach permission policies](screenshots/attach_permissions_policies.jpg)
 
 ![Create role](screenshots/create_role.jpg)
+
+## Build the lambda function
+
+```bash
+$ go build resizer.go
+$ zip resizer.zip resizer
+```
