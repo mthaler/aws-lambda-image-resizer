@@ -22,7 +22,7 @@ var sess *session.Session
 
 const (
 	REGION = "eu-central-1"
-	DST_BUCKET_NAME = "mt-image-resize-test-dst"
+	DST_BUCKET = "DST_BUCKET"
 )
 
 func init() {
@@ -92,8 +92,15 @@ func resizeImage(bucket, key string) {
 
 	uploader := s3manager.NewUploader(sess)
 
+	dstBucket, ok := os.LookupEnv(DST_BUCKET)
+	if !ok {
+		log.Fatalf("%s environment variable not set\n", DST_BUCKET)
+	} else {
+		fmt.Printf("Destination bucket: %s\n", dstBucket)
+	}
+
 	_, err = uploader.Upload(&s3manager.UploadInput{
-		Bucket: aws.String(DST_BUCKET_NAME),
+		Bucket: aws.String(dstBucket),
 		Key: aws.String(dst),
 		Body: fup,
 	})
