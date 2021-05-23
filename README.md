@@ -16,3 +16,6 @@ Open the S3 management console and create two buckets, one for the source images
 Open the IAM managment console and create a new policy:
 
 ![Create policy](screenshots/create_policy.jpg)
+
+
+![Create policy](screenshots/create_policy2.jpg)
