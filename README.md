@@ -63,4 +63,4 @@ Open the S3 management console and upload an image to the source bucket:
 
 ![Source image](screenshots/src_image.jpg)
 
-![Pasqueflower](screenshots/pasqueflower.jpg)
+![Pasqueflower](pasqueflower.jpg)
