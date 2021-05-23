@@ -22,7 +22,7 @@ var sess *session.Session
 
 const (
 	REGION = "eu-central-1"
-	BUCKET_NAME = "mt-image-resize-test-dst"
+	DST_BUCKET_NAME = "mt-image-resize-test-dst"
 )
 
 func init() {
@@ -84,4 +84,19 @@ func resizeImage(bucket, key string) {
 	if err != nil {
 		log.Fatalf("Could not save image to %s\n", dstLoc)
 	}
+
+	fup, err := os.Open(dstLoc)
+	if err != nil {
+		log.Fatalf("Could not open file %s\n", dstLoc)
+	}
+
+	uploader := s3manager.NewUploader(sess)
+
+	_, err = uploader.Upload(&s3manager.UploadInput{
+		Bucket: aws.String(DST_BUCKET_NAME),
+		Key: aws.String(dst),
+		Body: fup,
+	})
+
+	log.Printf("Uploaded file: %s", dstLoc)
 }
