@@ -18,9 +18,18 @@ import (
 
 const tmp = "/tmp/"
 
-var sess = session.Must(session.NewSession())
-var uploader = s3manager.NewUploader(sess)
-var downloader = s3manager.NewDownloader(sess)
+var sess *session.Session
+
+const (
+	REGION = "eu-central-1"
+	BUCKET_NAME = "mt-image-resize-test-dst"
+)
+
+func init() {
+	sess = session.Must(session.NewSession(&aws.Config{
+		Region: aws.String(REGION),
+	}))
+}
 
 func main() {
 	lambda.Start(handler)
@@ -50,6 +59,7 @@ func resizeImage(bucket, key string) {
 		log.Fatalf("Failed to create file %s\n", loc)
 	}
 
+	downloader := s3manager.NewDownloader(sess)
 	n, err := downloader.Download(f, &s3.GetObjectInput{
 		Bucket: aws.String(bucket),
 		Key:    aws.String(key),
