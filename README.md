@@ -26,3 +26,4 @@ Create a new role. For use case, select *Lambda*. Click on next and select the p
 
 ![Attach permission policies](screenshots/attach_permissions_policies.jpg)
 
+![Create role](screenshots/create_role.jpg)
