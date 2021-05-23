@@ -35,3 +35,9 @@ $ go build resizer.go
 $ zip resizer.zip resizer
 ```
 This creates an archive with the resizer binary that can be uploaded as lambda function to AWS.
+
+## Create lambda function
+
+Open the Lambda managment console and create a new function:
+
+![Create function](screenshots/create_function.jpg)
