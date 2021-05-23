@@ -5,9 +5,14 @@ import (
 	"fmt"
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
+	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
+	"github.com/aws/aws-sdk-go/service/s3"
 	"github.com/aws/aws-sdk-go/service/s3/s3manager"
 	"github.com/mthaler/aws-lambda-image-resizer/helpers"
+	"log"
+	"os"
+	"path/filepath"
 )
 
 const tmp = "/tmp/"
@@ -32,5 +37,25 @@ func handler(ctx context.Context, req events.S3Event) (string, error) {
 }
 
 func resizeImage(bucket, key string) {
+	loc:= tmp + bucket + "/" + key
+	dir := filepath.Dir(loc)
 
+	if err := os.MkdirAll(dir, os.ModePerm); err != nil {
+		log.Fatalf("Failed to create temporary directory %s\n", dir)
+	}
+
+	f, err := os.Create(loc)
+	if err != nil {
+		log.Fatalf("Failed to create file %s\n", loc)
+	}
+
+	n, err := downloader.Download(f, &s3.GetObjectInput{
+		Bucket: aws.String(bucket),
+		Key:    aws.String(key),
+	})
+	if err != nil {
+		log.Fatalf("Failed to download file %s from bucket %s, key %s\n", loc, bucket, key)
+	}
+
+	log.Printf("Downloaded file %s, size: %d\n", loc, n)
 }
