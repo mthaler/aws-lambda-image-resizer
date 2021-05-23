@@ -24,5 +24,5 @@ Open the IAM managment console and create a new policy:
 
 Create a new role. For use case, select *Lambda*. Click on next and select the policy from the previous step:
 
-![Attach permission policies](screenshots/attach_permission_policies.jpg)
+![Attach permission policies](screenshots/attach_permissions_policies.jpg)
 
