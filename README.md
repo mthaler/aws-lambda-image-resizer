@@ -34,3 +34,4 @@ Create a new role. For use case, select *Lambda*. Click on next and select the p
 $ go build resizer.go
 $ zip resizer.zip resizer
 ```
+This creates an archive with the resizer binary that can be uploaded as lambda function to AWS.
