@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/s3"
 	"github.com/aws/aws-sdk-go/service/s3/s3manager"
+	"github.com/disintegration/imaging"
 	"github.com/mthaler/aws-lambda-image-resizer/helpers"
 	"log"
 	"os"
@@ -56,6 +57,21 @@ func resizeImage(bucket, key string) {
 	if err != nil {
 		log.Fatalf("Failed to download file %s from bucket %s, key %s\n", loc, bucket, key)
 	}
-
 	log.Printf("Downloaded file %s, size: %d\n", loc, n)
+
+	src, err := imaging.Open(loc)
+	if err != nil {
+		log.Fatalf("Could not open image %s\n", loc)
+	}
+
+	resized := imaging.Resize(src, 200, 0, imaging.Lanczos)
+	log.Printf("Resized image %s", loc)
+
+	dst := key[:len(key)-4] + "_resized" + key[len(key)-4:]
+	dstLoc := "/tmp/" + dst
+
+	err = imaging.Save(resized, dstLoc)
+	if err != nil {
+		log.Fatalf("Could not save image to %s\n", dstLoc)
+	}
 }
