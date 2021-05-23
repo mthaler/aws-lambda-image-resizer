@@ -56,3 +56,11 @@ Next we need to configure a trigger so that the image resizer function is called
 We also need to add an environment variable for the destination bucket used to store the resized images:
 
 ![Add environment variable](screenshots/add_environment_variable.jpg)
+
+## Try it
+
+Open the S3 management console and upload an image to the source bucket:
+
+![Source image](screenshots/src_image.jpg)
+
+![Pasqueflower](screenshots/pasqueflower.jpg)
