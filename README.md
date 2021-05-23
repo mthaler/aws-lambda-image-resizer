@@ -55,4 +55,4 @@ Next we need to configure a trigger so that the image resizer function is called
 
 We also need to add an environment variable for the destination bucket used to store the resized images:
 
-![Add environment variable](add_environment_variable.jpg)
+![Add environment variable](screenshots/add_environment_variable.jpg)
