@@ -63,4 +63,11 @@ Open the S3 management console and upload an image to the source bucket:
 
 ![Source image](screenshots/src_image.jpg)
 
-![Pasqueflower](pasqueflower.jpg)
+![Pasqueflower](screenshots/pasqueflower.jpg)
+
+The image resizer function should now be executed automatically and create a resized image in the destination bucket:
+
+
+![Source image](screenshots/dst_image.jpg)
+
+![Pasqueflower](screenshots/pasqueflower_resized.jpg)
