@@ -8,3 +8,5 @@ Open the S3 management console and create two buckets, one for the source images
 ![Create source bucket](screenshots/create_src_bucket.jpg)
 
 ![Create destination bucket](screenshots/create_dst_bucket.jpg)
+
+**Important**: S3 bucket names have to be globally unique!
