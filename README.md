@@ -46,3 +46,5 @@ This takes some time. After the function is created, the following screen shold 
 
 
 ![Image resizer function](screenshots/image_resizer_function.jpg)
+
+Select Upload from on the right-hand side of *Code source* and upload the resizer.zip archive. Next edit the *Runtime settings* and change the name of the handler to *resizer*.
