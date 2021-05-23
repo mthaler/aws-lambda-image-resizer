@@ -41,3 +41,8 @@ This creates an archive with the resizer binary that can be uploaded as lambda f
 Open the Lambda managment console and create a new function:
 
 ![Create function](screenshots/create_function.jpg)
+
+This takes some time. After the function is created, the following screen shold be shown:
+
+
+![Image resize function](screenshots/image_resize_function.jpg)
