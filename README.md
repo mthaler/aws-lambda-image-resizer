@@ -48,3 +48,11 @@ This takes some time. After the function is created, the following screen shold 
 ![Image resizer function](screenshots/image_resizer_function.jpg)
 
 Select Upload from on the right-hand side of *Code source* and upload the resizer.zip archive. Next edit the *Runtime settings* and change the name of the handler to *resizer*.
+
+Next we need to configure a trigger so that the image resizer function is called when an image is uploaded to the source bucket. Click on *Configuration* and select *Triggers*, then *Add trigger*:
+
+![Add trigger](screenshots/add_trigger.jpg)
+
+We also need to add an environment variable for the destination bucket used to store the resized images:
+
+![Add environment variable](add_environment_variable.jpg)
