@@ -45,4 +45,4 @@ Open the Lambda managment console and create a new function:
 This takes some time. After the function is created, the following screen shold be shown:
 
 
-![Image resize function](screenshots/image_resize_function.jpg)
+![Image resizer function](screenshots/image_resizer_function.jpg)
